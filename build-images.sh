@@ -5,7 +5,6 @@ REPOSITORY_NAME="insignagency/capistranoci";
 # All "capistrano version;node version" combinations
 # Enter one line per combination.
 read -r -d '' COMBINATIONS << EOM
-3.10.1;6
 3.10.1;6.11.3
 3.10.1;7.10.1
 3.10.1;10
