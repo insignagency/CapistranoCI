@@ -4,11 +4,12 @@ REPOSITORY_NAME="insignagency/capistranoci";
 
 # All "capistrano version;node version" combinations
 # Enter one line per combination.
+# For node version use only exact version.
 read -r -d '' COMBINATIONS << EOM
 3.10.1;6.11.3
 3.10.1;7.10.1
-3.10.1;10
-3.6.1;10.15.0
+3.10.1;10.17.0
+3.6.1;10.17.0
 EOM
 
 GLOBALSTARTTIME=$(date +%s);
@@ -41,7 +42,7 @@ for COMBINATION in $COMBINATIONS
 
         PUSHENDTIME=$(date +%s);
         TIMEDIFF=$(python -c "print(${PUSHENDTIME} - ${PUSHSTARTTIME})");
-        echo "Build completed (${TIMEDIFF}s)"
+        echo "Push completed (${TIMEDIFF}s)"
     done
 
 GLOBALENDTIME=$(date +%s);

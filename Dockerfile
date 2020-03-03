@@ -5,7 +5,10 @@ ARG CAPISTRANO_VERSION="3.6.1"
 ARG NVM_VERSION="v0.35.0"
 ENV NVM_DIR="/root/.nvm"
 
-RUN gem install capistrano -v ${CAPISTRANO_VERSION} \
+RUN apt-get update -y \
+    && apt-get install openssh-client rsync -y \
+    && rm -rf /var/lib/apt/lists/* \
+    && gem install capistrano -v ${CAPISTRANO_VERSION} \
     && curl -o- https://raw.githubusercontent.com/creationix/nvm/${NVM_VERSION}/install.sh | bash \
     && . "$NVM_DIR/nvm.sh" \
     && nvm install ${NODE_VERSION} \
